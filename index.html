@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sensations 16:9</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#000;
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  overflow:hidden;
+}
+.slider{
+  width:100vw;
+  height:100vh;
+  position:relative;
+}
+.slide{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:opacity 1s ease;
+}
+.slide.active{opacity:1}
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.35);
+}
+h1{
+  position:relative;
+  z-index:2;
+  font-size:4vw;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+p{
+  position:relative;
+  z-index:2;
+  margin-top:15px;
+  font-size:1.5vw;
+}
+.brand{
+  font-size:2vw;
+}
+</style>
+</head>
+<body>
+
+<div class="slider">
+  <section class="slide active" style="background-image:url('img/totem.jpg')">
+    <div class="overlay"></div><h1>Totem ingresso</h1>
+  </section>
+
+  <section class="slide" style="background-image:url('img/ingresso1.jpg')">
+    <div class="overlay"></div><h1>Ingresso</h1>
+  </section>
+
+  <section class="slide" style="background-image:url('img/ingresso2.jpg')">
+    <div class="overlay"></div><h1>Ingresso</h1>
+  </section>
+
+  <section class="slide" style="background-image:url('img/recinzione.jpg')">
+    <div class="overlay"></div><h1>Recinzione</h1>
+  </section>
+
+  <section class="slide" style="background-image:url('img/verde.jpg')">
+    <div class="overlay"></div>
+    <h1>Aree verdi</h1>
+    <p>Ginkgo Biloba • Agave</p>
+  </section>
+
+  <section class="slide" style="background-image:url('img/vetrate.jpg')">
+    <div class="overlay"></div><h1>Vetrate</h1>
+  </section>
+
+  <section class="slide" style="background-image:url('img/tende.jpg')">
+    <div class="overlay"></div><h1>Tende Lunaria</h1>
+  </section>
+
+  <section class="slide" style="background:#111">
+    <h1 class="brand">Powered by PASSAMONTI_COMMUNICATION</h1>
+  </section>
+</div>
+
+<script>
+const slides=document.querySelectorAll('.slide');
+let i=0;
+setInterval(()=>{
+  slides[i].classList.remove('active');
+  i=(i+1)%slides.length;
+  slides[i].classList.add('active');
+},4000);
+</script>
+
+</body>
+</html>
